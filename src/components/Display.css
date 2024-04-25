@@ -1,0 +1,18 @@
+.display{
+    margin: 2em;
+    padding: 0.01em;
+    text-align: right;
+    background-color: #a2a97f;
+    border-radius:6%;
+    font-family: Digital-7, serif;
+    
+  }
+
+  .h2{
+    
+    padding: 0%;
+  }
+
+  .p{
+    margin: 1px;
+  }

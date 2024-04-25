@@ -13,6 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: 'Digital-7';
+  src: local('Digital-7'), url(./fonts/Digital-7/digital-7.ttf) format('truetype');
+}
+
 a {
   font-weight: 500;
   color: #646cff;
