@@ -37,7 +37,9 @@ function App() {
       setExpression(0)
   }
 
-  return ( 
+  return (
+    <div>
+      <h1 className='title'>CalcuLeo</h1>
       <div className='calculator'>
         <Display currentNumber = {currentNumber} expression={expression}/>
         <div className='buttonNumber'>
@@ -63,6 +65,7 @@ function App() {
           <button onClick={() => alterExpression("+")}>+</button><p/>
         </div>
       </div>
+    </div> 
   )
 }
 

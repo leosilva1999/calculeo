@@ -17,3 +17,13 @@
 .equals{
   background: #5b2510;
 }
+
+button{
+  margin: 5px;
+  width: 50px;
+  text-align: left;
+}
+
+.title{
+  font-family: Digital-7, serif;
+}
