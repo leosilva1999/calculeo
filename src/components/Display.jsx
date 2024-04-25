@@ -1,12 +1,12 @@
 import React from 'react'
 import './Display.css'
 
-const Display = ({count}) => {
+const Display = ({currentNumber, expression}) => {
 
   return (
     <div className='display'>
-        <p><h2>{count}</h2></p>
-        <p><h1>{count}</h1></p>
+        <h2>{expression}</h2>
+        <h1>{currentNumber}</h1>
     </div>
   )
 }

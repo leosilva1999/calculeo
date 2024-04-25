@@ -1,6 +1,6 @@
 .display{
-    margin: 2em;
-    padding: 0.01em;
+    margin: 1em;
+    padding: 0.1em;
     text-align: right;
     background-color: #a2a97f;
     border-radius:6%;
@@ -9,7 +9,6 @@
   }
 
   .h2{
-    
     padding: 0%;
   }
 

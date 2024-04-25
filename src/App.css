@@ -1,20 +1,19 @@
 #root {
   
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
-}
-
-.number{
-
 }
 
 .calculator{
   background-color: #171515;
   border-radius:4%;
-  height: 60vh;
+  height: flex;
   width: 45vh;
   align-items: center;
   justify-content: center;
   padding: 0.5em;
+}
+
+.equals{
+  background: #5b2510;
 }

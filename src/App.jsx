@@ -4,28 +4,63 @@ import Display from './components/Display'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(21)
+
+  const [expression, setExpression] = useState(0)
+  const [currentNumber, setCurrentNumber] = useState(0)
+
+  const clearDisplay = () => {
+    setCurrentNumber(0);
+    setExpression(0)
+  }
+
+  const alterDisplay = (insertedNumber) =>{
+    if(currentNumber==0){
+      setCurrentNumber(insertedNumber)
+    }else{
+      setCurrentNumber(currentNumber + insertedNumber)
+    }
+  }
+
+  const alterExpression = (signal) => {
+    if(expression==0){
+      setExpression(currentNumber+signal)
+      setCurrentNumber(0)
+    }else{
+      setExpression(expression + currentNumber + signal)
+      setCurrentNumber(0)
+    }
+  }
+
+  const calcExpression = () => {
+      let fullExpression = expression + currentNumber
+      setCurrentNumber(parseFloat(eval(fullExpression)).toFixed(4))
+      setExpression(0)
+  }
 
   return ( 
       <div className='calculator'>
-        <Display count = {count}/>
+        <Display currentNumber = {currentNumber} expression={expression}/>
         <div className='buttonNumber'>
-          <button>AC</button>
-          <button>*</button>
+          <button onClick={() => clearDisplay()}>AC</button>
+          <button onClick={() => setExpression(expression+currentNumber+"*")}>*</button>
           <button>+-</button>
           <button>%</button><p />
-          <button className='number' onClick={() => setCount(2)}>7</button>
-          <button className='number'>8</button>
-          <button className='number'>9</button>
-          <button>/</button><p />
-          <button className='number'>4</button>
-          <button className='number'>5</button>
-          <button className='number'>6</button>
-          <button>X</button><p />
-          <button className='number'>1</button>
-          <button className='number'>2</button>
-          <button className='number'>3</button>
-          <button>-</button><p />
+          <button className='number' onClick={() => alterDisplay("7")}>7</button>
+          <button className='number' onClick={() => alterDisplay("8")}>8</button>
+          <button className='number' onClick={() => alterDisplay("9")}>9</button>
+          <button onClick={() => alterExpression("/")}>/</button><p/>
+          <button className='number' onClick={() => alterDisplay("4")}>4</button>
+          <button className='number' onClick={() => alterDisplay("5")}>5</button>
+          <button className='number' onClick={() => alterDisplay("6")}>6</button>
+          <button onClick={() => alterExpression("*")}>X</button><p/>
+          <button className='number' onClick={() => alterDisplay("1")}>1</button>
+          <button className='number' onClick={() => alterDisplay("2")}>2</button>
+          <button className='number' onClick={() => alterDisplay("3")}>3</button>
+          <button onClick={() => alterExpression("-")}>-</button><p/>
+          <button className='number' onClick={() => alterDisplay("0")}>0</button>
+          <button className='number' onClick={() => alterDisplay(".")}>.</button>
+          <button className='equals' onClick={() => calcExpression()}>=</button>
+          <button onClick={() => alterExpression("+")}>+</button><p/>
         </div>
       </div>
   )
