@@ -32,9 +32,11 @@ function App() {
   }
 
   const calcExpression = () => {
+    if(expression!=0){
       let fullExpression = expression + currentNumber
       setCurrentNumber(parseFloat(eval(fullExpression)).toFixed(4))
       setExpression(0)
+    }
   }
 
   return (
@@ -44,7 +46,7 @@ function App() {
         <Display currentNumber = {currentNumber} expression={expression}/>
         <div className='buttonNumber'>
           <button onClick={() => clearDisplay()}>AC</button>
-          <button onClick={() => setExpression(expression+currentNumber+"*")}>*</button>
+          <button onClick={() => setCurrentNumber(0)}>⌫</button>
           <button>+-</button>
           <button>%</button><p />
           <button className='number' onClick={() => alterDisplay("7")}>7</button>
