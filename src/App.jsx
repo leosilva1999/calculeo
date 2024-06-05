@@ -7,15 +7,23 @@ function App() {
 
   const [expression, setExpression] = useState(0)
   const [currentNumber, setCurrentNumber] = useState(0)
+  const [calcDisplayStarted, setCalcDisplayStarted] = useState(false)
 
   const clearDisplay = () => {
     setCurrentNumber(0);
-    setExpression(0)
+    setExpression(0);
+    setCalcDisplayStarted(false);
   }
 
   const alterDisplay = (insertedNumber) =>{
     if(currentNumber==0){
-      setCurrentNumber(insertedNumber)
+      if(!calcDisplayStarted){
+        setCalcDisplayStarted(true);
+        setCurrentNumber(insertedNumber)
+      }
+      else{
+        setCurrentNumber(currentNumber + insertedNumber)
+      }
     }else{
       setCurrentNumber(currentNumber + insertedNumber)
     }
@@ -25,17 +33,20 @@ function App() {
     if(expression==0){
       setExpression(currentNumber+signal)
       setCurrentNumber(0)
+      setCalcDisplayStarted(false);
     }else{
       setExpression(expression + currentNumber + signal)
       setCurrentNumber(0)
+      setCalcDisplayStarted(false);
     }
   }
 
   const calcExpression = () => {
     if(expression!=0){
       let fullExpression = expression + currentNumber
-      setCurrentNumber(parseFloat(eval(fullExpression)).toFixed(4))
+      setCurrentNumber(parseFloat(eval(fullExpression).toFixed(4)))
       setExpression(0)
+      setCalcDisplayStarted(false);
     }
   }
 
