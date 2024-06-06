@@ -50,6 +50,15 @@ function App() {
     }
   }
 
+  const alterSignal = () => {
+    setCurrentNumber(parseFloat(currentNumber * -1))
+  }
+
+  const clearNumber = () => {
+    setCurrentNumber(0)
+    setCalcDisplayStarted(false);
+  }
+
   return (
     <div>
       <h1 className='title'>CalcuLeo</h1>
@@ -57,8 +66,8 @@ function App() {
         <Display currentNumber = {currentNumber} expression={expression}/>
         <div className='buttonNumber'>
           <button onClick={() => clearDisplay()}>AC</button>
-          <button onClick={() => setCurrentNumber(0)}>⌫</button>
-          <button>+-</button>
+          <button onClick={() => clearNumber()}>⌫</button>
+          <button onClick={() => alterSignal()}>+-</button>
           <button>%</button><p />
           <button className='number' onClick={() => alterDisplay("7")}>7</button>
           <button className='number' onClick={() => alterDisplay("8")}>8</button>
